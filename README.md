@@ -26,13 +26,9 @@ Why Method Extensions? When you’re using someone else’s API or when you impl
   
   *let me know if you want something specific or you found a bug at bar.idan@gmail.com*  
 ## Let get started 💪🏻 
-  
-1. Go to `pubspec.yaml` 
-2. add a dart_extensions and replace `[version]` with the latest version:  
-  
-```dart  
-dependencies:  
- dart_extensions: ^[version]
+
+```shell  
+dart pub add pure_dart_extensions
  ```
   
 3. click the packages get button or *flutter pub get*  
@@ -617,7 +613,7 @@ Return this number if it's between the range
 ## Contributing
 
 If you have read up till here, then 🎉🎉🎉. There are couple of ways in which you can contribute to
-the growing community of `dart_extensions.dart`.
+the growing community of `pure_dart_extensions.dart`.
 
 
 - Propose any feature, enhancement
