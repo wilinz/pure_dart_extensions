@@ -30,14 +30,6 @@ Why Method Extensions? When you’re using someone else’s API or when you impl
 ```shell  
 dart pub add pure_dart_extensions
  ```
-  
-3. click the packages get button or *flutter pub get*  
-## Responsive UI
-Very common way to calculate size in percentage is using the MediaQuery like so:
-```dart
-MediaQuery.of(context).size.width * 0.1
-```
-
 
 Flatten a nested Map into a single level map
 ```dart
@@ -58,32 +50,6 @@ The result you can also specify max depth, its the maximum number of nested obje
 //   'key2.keyB': 'valueII',
 //   'key3.a.b.c': 2
 // };
-
-
-Instead of the boilerplate we can use this awesome extension and get the same results.
-
-Wrap your Application with:
-```dart
-ResponsiveApp(
-      builder: (BuildContext context, Orientation orientation, DeviceType deviceType) {
-        return YourAppWidget()
-)
-```
-
-```dart
-AnimatedList(
-              key: chatListKey,
-              reverse: true,
-              padding: EdgeInsets.only(top: 10.textSizeResponsive),
-              shrinkWrap: true,
-```
-Also the text should be responsive, no problem
-```dart
-Text(
-  'Note added by ${message.from ?? ''}',
-  style: avanirBook.copyWith(fontSize: 8.responsiveText),
-),
-```
 
 ## Iterable Extensions
 
@@ -250,133 +216,6 @@ print(sales); // [
 ```  
 See [iterable.dart](https://github.com/droididan/dart_extentions/blob/master/lib/iterable.dart) for more  examples.  
 
-## Flutter Extensions
-
-### Context extensions
-Are you not tired from typing `MediaQuery.of(context).size...` to get height or width? here's a cool extension
-```dart
-  context.mq  // returns the MediaQuery
-```
-
-```dart
-  context isLandscape // returns if Orientation is landscape
-```
-
-```dart
-context.sizePx // returns same as MediaQuery.of(context).size
-```
-
-```dart
-context.widthPx // returns same as MediaQuery.of(context).size.width
-```
-
-```dart
-context.heightPx // returns same as MediaQuery.of(context).height
-```
-
-### Text Extensions
-```dart
-final text = Text('hello')
-     .bold()
-     .fontSize(25)
-     .italic();
-```
-
-### List<Widget> Extensions
-```dart
-    final someWidgetList = [
-      Text('hello'),
-      Text('world'),
-    ].toColumnWidget();  // toRowWidget(), toStackWidget()
-```
-
-### Widget extensions
-So now we can just add round corners, shadows, align, and added gestures to our `Widgets` without the crazy water-fall effect. awesome!
-That's just the tip of the iceberg, expect to see very cool stuff soon.
-```dart
-class Home extends StatefulWidget {
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: Stack(
-          children: <Widget>[
-            Container(
-              height: 100,
-              width: 100,
-            )   .withRoundCorners(backgroundColor: Colors.grey)
-                .withShadow()
-                .alignAtCenter()
-                .toCenter()
-                .withTooltip('just a tooltip')
-                .paddingOnly(left: 10)
-                .paddingAll(20)
-                .onTap(() => print('tap'))
-                .onLongPress(() => print('long press'))
-          ],
-        ),
-      ),
-    );
-  }
-}
-```
-
-### Navigation
-We can navigate from every widget by calling these methods
-```dart
-    navigateTo(route: MaterialPageRoute(builder: (c) => Login()));
-    navigateByRouteName(Routes.home, );
-    final result = navigateBack();
-```
-
-
-## Http Extensions
-
-### .httpGet()
-Sends an HTTP GET request with the given headers to the given URL
-```dart
-final json = await "https://jsonplaceholder.typicode.com/posts".httpGet();
-```
-*result:*
-```json
-[
-  {
-    "userId": 1,
-    "id": 1,
-    "title": "sunt aut facere",
-    "body": "quia et suscipit"
-  },
-  {
-    "userId": 1,
-    "id": 2,
-    "title": "qui est esse",
-    "body": "dolor beatae ea dolores neque"
-  },
-]
-```
-
-*usage with then:*
-```dart
-"https://jsonplaceholder.typicode.com/posts".httpGet().then((result) {
-          print(result);
-       }).catchError((e) => print(e));
-```
-
-### .httpPost()
-Sends an HTTP POST request with the given headers and body to the given URL which can be a [Uri] or a [String].
-```dart
-String json = '{"title": "Hello", "body": "body text", "userId": 1}';
-final json = await "https://jsonplaceholder.typicode.com/posts".httpPost(json);
-```
-
-for more examples (put, delete) See [http.dart](https://github.com/droididan/dart_extentions/blob/master/lib/http.dart) 
-
 ## Range Extensions
 ### .until()
 Returns a sequence of integer, starting from the current number until the [end] number. [step] is optional, it will step number if given
@@ -415,7 +254,6 @@ Returns true if this string is any of these values: "true", "yes", "1", or if th
 'no'.asBool    // false
 'NO'.asBool    // false
 ```
-
 
 ### .insert()
 Returns a new string in which a specified string is inserted at a specified index position in this instance.
@@ -491,19 +329,7 @@ Return this number if it's between the range
 5.inRangeOf(3, 4) // 4 number is bigger then the range so will return max
 ```
 
-# Flutter Extensions Full List
-
-## Flutter
-- `Tooltip`
-- `algin`
-- `center`
-- `container`
-- `padding`
-- `navigation`
-- `Context`
-- `Text`
-- `List<Widget>`
-- `Icon`
+# Extensions Full List
 
 ## Http Extensions
 - `httpGet`
