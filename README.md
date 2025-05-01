@@ -1,7 +1,9 @@
   
 [![](https://img.shields.io/badge/ver-2.1.0-green)](https://github.com/droididan/dart_extentions)   ![](https://img.shields.io/badge/Code%20Coverage-96%25-green) ![](https://img.shields.io/badge/Bitrise-Pass-green)  
-  
- 
+
+## Introduction
+A pure Dart extension library, based on https://github.com/droididan/dart_extensions, with Flutter-related code removed to ensure compatibility with pure Dart. This project supports Dart SDK >= 3.0.0 < 4.0.0.
+
 ## What New 
 * Responsive UI tools 💪🏻💪🏻💪🏻
 * `flatJson` -> Flatten a nested Map into a single level map
