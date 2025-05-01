@@ -1,3 +1,6 @@
+## [3.0.1] - 01/05/25
+- Update readme.md
+
 ## [3.0.0] - 01/05/25
 - Remove Flutter-related code to ensure compatibility with pure Dart.
 
